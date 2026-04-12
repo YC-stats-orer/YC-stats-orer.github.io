@@ -7,17 +7,15 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
     gtag('config', 'G-FTQWFF0958');
   </script>
-  
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="PhD Student in Decision Sciences, Duke University">
   <meta name="author" content="Yan Chen">
   <meta name="theme-color" content="#222222">
 
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
     crossorigin="anonymous">
@@ -25,21 +23,18 @@
   <title>Yan Chen</title>
 
   <style>
-    /* ===== style-2.css ===== */
-
-    /* Fonts */
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
     :root {
-      --accent: #2563eb;          /* blue — replaces the red in style-2 */
+      --accent: #2563eb;
       --accent-dark: #1d4ed8;
       --accent-light: #dbeafe;
       --text-main: #1a1a1a;
       --text-muted: #555;
       --text-light: #888;
       --bg: #fafafa;
-      --sidebar-bg: #f4f4f4;
       --border: #e0e0e0;
+      --nav-height: 56px;
     }
 
     * { box-sizing: border-box; }
@@ -50,33 +45,47 @@
       color: var(--text-main);
       background: var(--bg);
       line-height: 1.7;
+      margin: 0;
     }
 
-    /* ---- LAYOUT ---- */
-    .allstuffp { max-width: 1100px; }
-    .fixed-posi {
+    /* ===== TOP NAV ===== */
+    .topnav {
       position: sticky;
-      top: 40px;
+      top: 0;
+      z-index: 200;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
     }
-
-    /* ---- SIDEBAR ---- */
-    .name {
-      font-family: 'EB Garamond', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 0;
-      color: var(--text-main);
-      line-height: 1.2;
-    }
-
-    .profilepic {
+    .topnav-inner {
       width: 100%;
-      max-width: 180px;
-      border-radius: 6px;
-      display: block;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+    .topnav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .topnav-name:hover { color: var(--accent); text-decoration: none; }
 
-    .menulink {
+    .topnav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .topnav-links a {
       color: var(--text-muted);
       text-decoration: none;
       font-size: 0.88rem;
@@ -84,20 +93,66 @@
       letter-spacing: 0.01em;
       transition: color 0.18s;
     }
-    .menulink:hover {
+    .topnav-links a:hover,
+    .topnav-links a.active {
       color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ===== PAGE LAYOUT ===== */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3.5rem;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar { min-width: 0; }
+    .sidebar-sticky {
+      position: sticky;
+      top: calc(var(--nav-height) + 2rem);
+    }
+
+    .profilepic {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 6px;
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .sidebar-links li { margin-bottom: 0.35rem; }
+    .sidebar-links a {
+      color: var(--text-muted);
       text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.18s;
+    }
+    .sidebar-links a:hover { color: var(--accent); }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      min-width: 0;
+      padding-top: 0.5rem;
     }
 
-    .menur { margin-top: 0; }
-
-    /* ---- MAIN CONTENT ---- */
-    .about {
-      padding-left: 2.5rem;
-      border-left: 3px solid var(--border);
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.6rem;
     }
 
-    /* Section headers */
     .header {
       font-family: 'EB Garamond', serif;
       font-size: 1.45rem;
@@ -109,7 +164,19 @@
       margin-bottom: 1rem;
     }
 
-    /* Sub-section headers (Selected Preprints / Publications) */
+    .about-text p { margin-bottom: 0.9rem; }
+
+    .in-text {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+    }
+    .in-text:hover {
+      color: var(--accent-dark);
+      border-bottom-color: var(--accent-dark);
+      text-decoration: none;
+    }
+
     .subheader {
       font-size: 0.8rem;
       font-weight: 500;
@@ -120,12 +187,11 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Paper entries */
     .paper {
       font-size: 0.9rem;
       border-left: 3px solid transparent;
       transition: border-color 0.2s;
-      padding-left: 0.75rem !important;
+      padding-left: 0.75rem;
     }
     .paper:hover { border-left-color: var(--accent); }
 
@@ -135,7 +201,6 @@
       font-weight: 600;
       color: var(--text-main);
     }
-
     .thisauthor {
       font-weight: 500;
       color: var(--accent-dark);
@@ -143,24 +208,10 @@
       text-decoration-style: dotted;
       text-underline-offset: 2px;
     }
-
-    .noter {
-      color: var(--text-light);
-      font-size: 0.82rem;
-    }
-
-    .conf {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-    .confshort {
-      color: var(--accent);
-      font-weight: 500;
-      text-decoration: none;
-    }
+    .conf { color: var(--text-muted); font-size: 0.85rem; }
+    .confshort { color: var(--accent); font-weight: 500; text-decoration: none; }
     .confshort:hover { text-decoration: underline; }
 
-    /* Tags (pdf, arxiv, code …) */
     .tag {
       display: inline-block;
       font-size: 0.72rem;
@@ -173,36 +224,9 @@
       text-decoration: none;
       transition: background 0.15s, color 0.15s;
     }
-    .tag:hover {
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-    }
-    .tagsep {
-      color: var(--border);
-      margin: 0 2px;
-    }
+    .tag:hover { background: var(--accent); color: #fff; text-decoration: none; }
+    .tagsep { color: var(--border); margin: 0 2px; }
 
-    /* Inline links inside body text */
-    .in-text {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--accent);
-    }
-    .in-text:hover {
-      color: var(--accent-dark);
-      border-bottom-color: var(--accent-dark);
-      text-decoration: none;
-    }
-
-    /* Venue bullet highlights */
-    .venue-highlight {
-      font-style: italic;
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    /* Talk / Teaching / Activity entries */
     .entry-block {
       font-size: 0.9rem;
       padding: 0.5rem 0 0.5rem 0.75rem;
@@ -214,85 +238,56 @@
     .entry-title { font-weight: 500; color: var(--text-main); }
     .entry-sub { color: var(--text-muted); font-size: 0.85rem; }
 
-    /* Contact line */
-    .contact-line {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 0.3rem;
-    }
-    .contact-line a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .contact-line a:hover { text-decoration: underline; }
-
-    /* Responsive tweaks */
     @media (max-width: 768px) {
-      .about {
-        padding-left: 0;
-        border-left: none;
-        border-top: 3px solid var(--border);
-        padding-top: 1.5rem;
+      .page-wrap {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.2rem 3rem;
       }
-      .fixed-posi { position: static; }
-      .profilepic { max-width: 140px; }
+      .sidebar-sticky { position: static; }
+      .profilepic { max-width: 150px; }
+      .topnav-links { gap: 1.1rem; }
+      .topnav-name { font-size: 1rem; }
     }
   </style>
 </head>
 
 <body>
-<div class="container pt-5 allstuffp">
-  <div class="row pt-5 allstuff">
 
-    <!-- ===== SIDEBAR ===== -->
-    <div class="col-md-3 pt-5">
-      <div class="fixed-posi">
-        <p class="name">Yan Chen</p>
-        <!-- <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.4rem;">陈琰</p> -->
+<!-- ===== TOP NAV ===== -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-name" href="#">Yan Chen</a>
+    <ul class="topnav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#activities">Activities</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <img src="profile.jpg"
-             class="profilepic pt-2 pb-2" alt="Yan Chen">
+<!-- ===== PAGE BODY ===== -->
+<div class="page-wrap">
 
-        <div class="pt-4">
-          <div class="mb-1">
-            <a class="menulink" href="#research">research</a>
-          </div>
-          <div class="mb-1">
-            <a class="menulink" href="#talks">talks</a>
-          </div>
-          <div class="mb-1">
-            <a class="menulink" href="#teaching">teaching</a>
-          </div>
-          <div class="mb-1">
-            <a class="menulink" href="#activities">activities</a>
-          </div>
-        </div>
-
-        <div class="pt-3">
-          <div class="mb-1">
-            <a class="menulink" target="_blank"
-               href="https://go.fuqua.duke.edu/fw/cms/FuquaWorld/Documents/Vita/yc555.pdf">curriculum vitae</a>
-          </div>
-          <div class="mb-1">
-            <a class="menulink" target="_blank"
-               href="https://www.linkedin.com/in/yan-chen-4895b1b1/">linkedin</a>
-          </div>
-          <div class="mb-1">
-            <a class="menulink" href="mailto:yc555@duke.edu">email address</a>
-          </div>
-        </div>
-
-        <div class="pt-3 contact-line">
-          yc555@duke.edu<br>
-          <!-- yan.chen@duke.edu -->
-        </div>
-      </div>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <img src="profile.jpg" class="profilepic" alt="Yan Chen" style="margin-top:0.5rem;">
+      <ul class="sidebar-links">
+        <li><a href="https://go.fuqua.duke.edu/fw/cms/FuquaWorld/Documents/Vita/yc555.pdf" target="_blank">Curriculum Vitae</a></li>
+        <li><a href="https://www.linkedin.com/in/yan-chen-4895b1b1/" target="_blank">LinkedIn</a></li>
+        <li><a href="mailto:yc555@duke.edu">yc555@duke.edu</a></li>
+      </ul>
     </div>
+  </aside>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <div class="col-md-9 pt-5 about">
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
 
-      <!-- Bio -->
+    <!-- About -->
+    <div class="section-label">About Myself</div>
+    <div class="about-text">
       <p>
         I'm <strong>Yan Chen</strong>, a 4th-year PhD student in
         <a class="in-text" href="https://areas.fuqua.duke.edu/decision-sciences/" target="_blank">Decision Sciences</a>
@@ -302,218 +297,219 @@
         <em>Bachelor in Statistics</em> from Nanjing University Department of Mathematics in 2016.
         I worked as a data scientist in industry from 2018 to 2022.
       </p>
+    </div>
 
-      <!-- ===== RESEARCH ===== -->
-      <p class="header pt-4" id="research">Research</p>
+    <!-- ===== RESEARCH ===== -->
+    <p class="header" id="research" style="margin-top:2.5rem;">Research</p>
 
-      <p class="subheader">Selected Preprints / Working Papers</p>
+    <p class="subheader">Selected Preprints / Working Papers</p>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Compound Estimation for Binomials</span><br>
-          <span class="thisauthor">Yan Chen</span>, Lihua Lei<br>
-          <span class="conf">
-            Presented at CODE@MIT (Poster) 2025 &middot;
-            Causal Data Science Meeting 2025 (Spotlight) &middot;
-            2025 Stanford Causal Science Center Conference (Poster)
-          </span><br>
-          <a class="tag" href="https://arxiv.org/pdf/2512.25042" target="_blank">arxiv</a>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Compound Estimation for Binomials</span><br>
+        <span class="thisauthor">Yan Chen</span>, Lihua Lei<br>
+        <span class="conf">
+          Presented at CODE@MIT (Poster) 2025 &middot;
+          Causal Data Science Meeting 2025 (Spotlight) &middot;
+          2025 Stanford Causal Science Center Conference (Poster)
+        </span><br>
+        <a class="tag" href="https://arxiv.org/pdf/2512.25042" target="_blank">arxiv</a>
+      </p>
+    </div>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Adversarial Estimation of Assortment Probabilities under Independence Structure</span><br>
-          Alexandre Belloni, <span class="thisauthor">Yan Chen</span>, Matthew Harding<br>
-          <span class="conf">
-            Presented at Joint Statistical Meetings 2025 &middot;
-            American Causal Inference Conference 2025 &middot;
-            California Econometrics Conference 2024 &middot;
-            Midwest Econometrics Group Conference 2024
-          </span><br>
-          <a class="tag" href="https://arxiv.org/pdf/2410.15166" target="_blank">arxiv</a><span class="tagsep">|</span>
-          <a class="tag" href="https://github.com/Yan-Chen-Stats-ORer/Adversarial_Lasso/tree/main" target="_blank">code</a>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Adversarial Estimation of Assortment Probabilities under Independence Structure</span><br>
+        Alexandre Belloni, <span class="thisauthor">Yan Chen</span>, Matthew Harding<br>
+        <span class="conf">
+          Presented at Joint Statistical Meetings 2025 &middot;
+          American Causal Inference Conference 2025 &middot;
+          California Econometrics Conference 2024 &middot;
+          Midwest Econometrics Group Conference 2024
+        </span><br>
+        <a class="tag" href="https://arxiv.org/pdf/2410.15166" target="_blank">arxiv</a><span class="tagsep">|</span>
+        <a class="tag" href="https://github.com/Yan-Chen-Stats-ORer/Adversarial_Lasso/tree/main" target="_blank">code</a>
+      </p>
+    </div>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Testing Fairness with Utility Tradeoffs: A Wasserstein Projection Approach</span><br>
-          <span class="thisauthor">Yan Chen</span>, Zheng Tan, Jose Blanchet, Hanzhang Qin<br>
-          <a class="tag" href="https://arxiv.org/pdf/2505.11678" target="_blank">arxiv</a>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Testing Fairness with Utility Tradeoffs: A Wasserstein Projection Approach</span><br>
+        <span class="thisauthor">Yan Chen</span>, Zheng Tan, Jose Blanchet, Hanzhang Qin<br>
+        <a class="tag" href="https://arxiv.org/pdf/2505.11678" target="_blank">arxiv</a>
+      </p>
+    </div>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Market Design for Platform-Mediated Influencer Advertising</span><br>
-          <span class="thisauthor">Yan Chen</span>, Saša Pekeč<br>
-          <span class="conf">
-            Presented at 2025 EC Frontiers of Online Advertising workshop (Spotlight) &middot;
-            2025 MSOM main conference
-          </span>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Market Design for Platform-Mediated Influencer Advertising</span><br>
+        <span class="thisauthor">Yan Chen</span>, Saša Pekeč<br>
+        <span class="conf">
+          Presented at 2025 EC Frontiers of Online Advertising workshop (Spotlight) &middot;
+          2025 MSOM main conference
+        </span>
+      </p>
+    </div>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Online Bin Packing with Load Balancing</span><br>
-          Zheng Tan, Hanzhang Qin, <span class="thisauthor">Yan Chen</span>, Lindong Liu, Yugang Yu<br>
-          <a class="tag" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4989464" target="_blank">ssrn</a>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Online Bin Packing with Load Balancing</span><br>
+        Zheng Tan, Hanzhang Qin, <span class="thisauthor">Yan Chen</span>, Lindong Liu, Yugang Yu<br>
+        <a class="tag" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4989464" target="_blank">ssrn</a>
+      </p>
+    </div>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Double Distributionally Robust Bid Shading for First Price Auctions</span><br>
-          Yanlin Qu, Ravi Kant, <span class="thisauthor">Yan Chen</span>, Brendan Kitts, San Gultekin, Aaron Flores, Jose Blanchet<br>
-          <a class="tag" href="https://arxiv.org/pdf/2410.14864" target="_blank">arxiv</a>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Double Distributionally Robust Bid Shading for First Price Auctions</span><br>
+        Yanlin Qu, Ravi Kant, <span class="thisauthor">Yan Chen</span>, Brendan Kitts, San Gultekin, Aaron Flores, Jose Blanchet<br>
+        <a class="tag" href="https://arxiv.org/pdf/2410.14864" target="_blank">arxiv</a>
+      </p>
+    </div>
 
-      <p class="subheader">Publications</p>
+    <p class="subheader">Publications</p>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Optimal Downsampling for Imbalanced Classification with Generalized Linear Models</span><br>
-          <span class="thisauthor">Yan Chen</span>, Jose Blanchet, Krzysztof Dembczynski, Laura Fee Nern, Aaron Flores<br>
-          <span class="conf">
-            <a class="confshort" href="https://proceedings.mlr.press/v258/chen25c.html" target="_blank">AISTATS 2025</a>
-            | International Conference on Artificial Intelligence and Statistics
-          </span><br>
-          <a class="tag" href="https://proceedings.mlr.press/v258/chen25c.html" target="_blank">paper</a>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Optimal Downsampling for Imbalanced Classification with Generalized Linear Models</span><br>
+        <span class="thisauthor">Yan Chen</span>, Jose Blanchet, Krzysztof Dembczynski, Laura Fee Nern, Aaron Flores<br>
+        <span class="conf">
+          <a class="confshort" href="https://proceedings.mlr.press/v258/chen25c.html" target="_blank">AISTATS 2025</a>
+          | International Conference on Artificial Intelligence and Statistics
+        </span><br>
+        <a class="tag" href="https://proceedings.mlr.press/v258/chen25c.html" target="_blank">paper</a>
+      </p>
+    </div>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Concurrent Reinforcement Learning with Aggregated States via Randomized Least Squares Value Iteration</span><br>
-          <span class="thisauthor">Yan Chen</span>, Qinxun Bai, Yiteng Zhang, Maria Dimakopoulou, Shi Dong, Qi Sun, Zhengyuan Zhou<br>
-          <span class="conf">
-            <a class="confshort" href="https://proceedings.mlr.press/v267/chen25c.html" target="_blank">ICML 2025</a>
-            | International Conference on Machine Learning
-          </span><br>
-          <a class="tag" href="https://proceedings.mlr.press/v267/chen25c.html" target="_blank">paper</a>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Concurrent Reinforcement Learning with Aggregated States via Randomized Least Squares Value Iteration</span><br>
+        <span class="thisauthor">Yan Chen</span>, Qinxun Bai, Yiteng Zhang, Maria Dimakopoulou, Shi Dong, Qi Sun, Zhengyuan Zhou<br>
+        <span class="conf">
+          <a class="confshort" href="https://proceedings.mlr.press/v267/chen25c.html" target="_blank">ICML 2025</a>
+          | International Conference on Machine Learning
+        </span><br>
+        <a class="tag" href="https://proceedings.mlr.press/v267/chen25c.html" target="_blank">paper</a>
+      </p>
+    </div>
 
-      <div class="py-2">
-        <p class="paper my-2">
-          <span class="papertitle">Society of Agents: Regret Bounds of Concurrent Thompson Sampling</span><br>
-          <span class="thisauthor">Yan Chen</span>, Perry Dong, Qinxun Bai, Maria Dimakopoulou, Wei Xu, Zhengyuan Zhou<br>
-          <span class="conf">
-            <a class="confshort" href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/32133a6a24d6554263d3584e3ac10faa-Abstract-Conference.html" target="_blank">NeurIPS 2022</a>
-            | Advances in Neural Information Processing Systems
-          </span><br>
-          <a class="tag" href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/32133a6a24d6554263d3584e3ac10faa-Abstract-Conference.html" target="_blank">paper</a>
-        </p>
-      </div>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Society of Agents: Regret Bounds of Concurrent Thompson Sampling</span><br>
+        <span class="thisauthor">Yan Chen</span>, Perry Dong, Qinxun Bai, Maria Dimakopoulou, Wei Xu, Zhengyuan Zhou<br>
+        <span class="conf">
+          <a class="confshort" href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/32133a6a24d6554263d3584e3ac10faa-Abstract-Conference.html" target="_blank">NeurIPS 2022</a>
+          | Advances in Neural Information Processing Systems
+        </span><br>
+        <a class="tag" href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/32133a6a24d6554263d3584e3ac10faa-Abstract-Conference.html" target="_blank">paper</a>
+      </p>
+    </div>
 
-      <!-- ===== TALKS ===== -->
-      <p class="header pt-5" id="talks">Talks</p>
+    <!-- ===== TALKS ===== -->
+    <p class="header" id="talks" style="margin-top:3rem;">Talks</p>
 
-      <div class="entry-block">
-        <span class="entry-title">Invited Discussant</span>, International Seminar on Selective Inference — Discussion of Prof. Nikos Ignatiadis' talk<br>
-        <span class="entry-sub">January 2026 &middot; Online</span><br>
-        <a class="tag" href="https://drive.google.com/file/d/1LrkoAdyCFGte-t7e00tANz8pe6HrprGR/view" target="_blank">video</a>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2025 Stanford Causal Science Center Conference</span> (poster)<br>
-        <span class="entry-sub">November 2025 &middot; Stanford, CA</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2025 Conference on Digital Experimentation (CODE) @ MIT</span> (poster)<br>
-        <span class="entry-sub">November 2025 &middot; Cambridge, MA</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2025 Causal Data Science Meeting</span><br>
-        <span class="entry-sub">November 2025 &middot; Online</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2025 INFORMS Annual Meeting</span><br>
-        <span class="entry-sub">October 2025 &middot; Atlanta, GA</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2025 Joint Statistical Meetings</span><br>
-        <span class="entry-sub">August 2025 &middot; Nashville, TN</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2025 Revenue Management and Pricing Conference</span><br>
-        <span class="entry-sub">July 2025 &middot; Columbia University, NYC</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2025 American Causal Inference Conference</span><br>
-        <span class="entry-sub">May 2025 &middot; Detroit, MI</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">Midwest Econometrics Group Conference 2024</span><br>
-        <span class="entry-sub">November 2024 &middot; Lexington, KY</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2024 INFORMS Annual Meeting</span><br>
-        <span class="entry-sub">October 2024 &middot; Seattle, WA</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">2024 California Econometrics Conference</span><br>
-        <span class="entry-sub">September 2024 &middot; UC Davis, CA</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">INFORMS Annual Meeting</span><br>
-        <span class="entry-sub">October 2023 &middot; Phoenix, AZ</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">Yahoo Research Seminar</span> — Towards Improving Efficiency in Yahoo's Predictive Approaches<br>
-        <span class="entry-sub">August 2023 &middot; Online</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">NeurIPS 2022 Poster Session</span><br>
-        <span class="entry-sub">November 2022 &middot; New Orleans, LA</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">INFORMS Annual Meeting</span><br>
-        <span class="entry-sub">October 2022 &middot; Indianapolis, IN</span>
-      </div>
+    <div class="entry-block">
+      <span class="entry-title">Invited Discussant</span>, International Seminar on Selective Inference — Discussion of Prof. Nikos Ignatiadis' talk<br>
+      <span class="entry-sub">January 2026 &middot; Online</span><br>
+      <a class="tag" href="https://drive.google.com/file/d/1LrkoAdyCFGte-t7e00tANz8pe6HrprGR/view" target="_blank">video</a>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2025 Stanford Causal Science Center Conference</span> (poster)<br>
+      <span class="entry-sub">November 2025 &middot; Stanford, CA</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2025 Conference on Digital Experimentation (CODE) @ MIT</span> (poster)<br>
+      <span class="entry-sub">November 2025 &middot; Cambridge, MA</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2025 Causal Data Science Meeting</span><br>
+      <span class="entry-sub">November 2025 &middot; Online</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2025 INFORMS Annual Meeting</span><br>
+      <span class="entry-sub">October 2025 &middot; Atlanta, GA</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2025 Joint Statistical Meetings</span><br>
+      <span class="entry-sub">August 2025 &middot; Nashville, TN</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2025 Revenue Management and Pricing Conference</span><br>
+      <span class="entry-sub">July 2025 &middot; Columbia University, NYC</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2025 American Causal Inference Conference</span><br>
+      <span class="entry-sub">May 2025 &middot; Detroit, MI</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">Midwest Econometrics Group Conference 2024</span><br>
+      <span class="entry-sub">November 2024 &middot; Lexington, KY</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2024 INFORMS Annual Meeting</span><br>
+      <span class="entry-sub">October 2024 &middot; Seattle, WA</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">2024 California Econometrics Conference</span><br>
+      <span class="entry-sub">September 2024 &middot; UC Davis, CA</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">INFORMS Annual Meeting</span><br>
+      <span class="entry-sub">October 2023 &middot; Phoenix, AZ</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">Yahoo Research Seminar</span> — Towards Improving Efficiency in Yahoo's Predictive Approaches<br>
+      <span class="entry-sub">August 2023 &middot; Online</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">NeurIPS 2022 Poster Session</span><br>
+      <span class="entry-sub">November 2022 &middot; New Orleans, LA</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">INFORMS Annual Meeting</span><br>
+      <span class="entry-sub">October 2022 &middot; Indianapolis, IN</span>
+    </div>
 
-      <!-- ===== TEACHING ===== -->
-      <p class="header pt-5" id="teaching">Teaching</p>
+    <!-- ===== TEACHING ===== -->
+    <p class="header" id="teaching" style="margin-top:3rem;">Teaching</p>
 
-      <div class="entry-block">
-        <span class="entry-title">Head TA (Fall 2025)</span> — DEC-546: Modern Analytics: Data, Prediction and Actions<br>
-        <span class="entry-sub">Master of Quantitative Management, Fuqua School of Business</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">Instructor (Summer 2024)</span> — Math Summer Camp for Fuqua PhD<br>
-        <span class="entry-sub">Teaching evaluation: <strong style="color:var(--accent)">5.0 / 5.0</strong></span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">TA (Spring 2024)</span> — Univ 103: Let's Talk About Digital You: A Technical and Ethical Exploration of a Data-Centric World<br>
-        <span class="entry-sub">Duke Undergraduate</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">Head TA (Fall 2024)</span> — DEC-546: Modern Analytics: Data, Prediction and Actions<br>
-        <span class="entry-sub">Master of Quantitative Management, Fuqua School of Business</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">Head TA (Fall 2023)</span> — DEC-546: Modern Analytics: Data, Prediction and Actions<br>
-        <span class="entry-sub">Master of Quantitative Management, Fuqua School of Business</span>
-      </div>
+    <div class="entry-block">
+      <span class="entry-title">Head TA (Fall 2025)</span> — DEC-546: Modern Analytics: Data, Prediction and Actions<br>
+      <span class="entry-sub">Master of Quantitative Management, Fuqua School of Business</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">Instructor (Summer 2024)</span> — Math Summer Camp for Fuqua PhD<br>
+      <span class="entry-sub">Teaching evaluation: <strong style="color:var(--accent)">5.0 / 5.0</strong></span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">TA (Spring 2024)</span> — Univ 103: Let's Talk About Digital You: A Technical and Ethical Exploration of a Data-Centric World<br>
+      <span class="entry-sub">Duke Undergraduate</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">Head TA (Fall 2024)</span> — DEC-546: Modern Analytics: Data, Prediction and Actions<br>
+      <span class="entry-sub">Master of Quantitative Management, Fuqua School of Business</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">Head TA (Fall 2023)</span> — DEC-546: Modern Analytics: Data, Prediction and Actions<br>
+      <span class="entry-sub">Master of Quantitative Management, Fuqua School of Business</span>
+    </div>
 
-      <!-- ===== ACTIVITIES ===== -->
-      <p class="header pt-5" id="activities">Activities</p>
+    <!-- ===== ACTIVITIES ===== -->
+    <p class="header" id="activities" style="margin-top:3rem;">Activities</p>
 
-      <div class="entry-block">
-        <span class="entry-title">Co-chair</span>, International Student Affairs under Duke Graduate and Professional Student Government<br>
-        <span class="entry-sub">Fall 2022 – Spring 2023</span>
-      </div>
-      <div class="entry-block">
-        <span class="entry-title">PhD Representative</span>, Duke Graduate School EIS (English for International Students) Working Group<br>
-        <span class="entry-sub">Appointed by Associate Dean for Graduate Programs &middot; Fall 2023 – Spring 2024</span>
-      </div>
+    <div class="entry-block">
+      <span class="entry-title">Co-chair</span>, International Student Affairs under Duke Graduate and Professional Student Government<br>
+      <span class="entry-sub">Fall 2022 – Spring 2023</span>
+    </div>
+    <div class="entry-block">
+      <span class="entry-title">PhD Representative</span>, Duke Graduate School EIS (English for International Students) Working Group<br>
+      <span class="entry-sub">Appointed by Associate Dean for Graduate Programs &middot; Fall 2023 – Spring 2024</span>
+    </div>
 
-      <div class="pb-5"></div>
-    </div><!-- /col-md-9 -->
-  </div><!-- /row -->
-</div><!-- /container -->
+    <div style="height:4rem;"></div>
+  </main>
+
+</div><!-- /page-wrap -->
 
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -527,38 +523,38 @@
   crossorigin="anonymous"></script>
 
 <script>
-  // style-2.js equivalent: smooth scrolling for sidebar nav
+  // Smooth scroll with offset for sticky nav
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const top = target.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
 
-  // Active link highlighting while scrolling
+  // Active nav highlighting on scroll
   const sections = document.querySelectorAll('.header[id]');
-  const menuLinks = document.querySelectorAll('.menulink[href^="#"]');
+  const navLinks = document.querySelectorAll('.topnav-links a[href^="#"]');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        menuLinks.forEach(link => {
-          link.style.color = '';
+        navLinks.forEach(link => {
+          link.classList.remove('active');
           if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.style.color = 'var(--accent)';
-            link.style.fontWeight = '500';
-          } else {
-            link.style.fontWeight = '';
+            link.classList.add('active');
           }
         });
       }
     });
-  }, { rootMargin: '-20% 0px -70% 0px' });
+  }, { rootMargin: '-15% 0px -75% 0px' });
 
-  sections.forEach(section => observer.observe(section));
+  sections.forEach(s => observer.observe(s));
 </script>
 
 </body>
