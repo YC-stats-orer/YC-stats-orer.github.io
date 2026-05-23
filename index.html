@@ -236,6 +236,14 @@
     .tag:hover { background: var(--accent); color: #fff; text-decoration: none; }
     .tagsep { color: var(--border); margin: 0 2px; }
 
+    /* ===== RESEARCH TWO-COLUMN LAYOUT ===== */
+    .research-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .research-columns .subheader { margin-top: 0; }
+
     .entry-block {
       font-size: 0.9rem;
       padding: 0.5rem 0 0.5rem 0.75rem;
@@ -246,6 +254,11 @@
     .entry-block:hover { border-left-color: var(--accent); }
     .entry-title { font-weight: 500; color: var(--text-main); }
     .entry-sub { color: var(--text-muted); font-size: 0.85rem; }
+    /* ===== COMPACT TALKS ===== */
+    .talks-compact .entry-block {
+      padding: 0.3rem 0 0.3rem 0.75rem;
+      margin-bottom: 0.25rem;
+    }
 
     @media (max-width: 768px) {
       .page-wrap {
@@ -257,6 +270,10 @@
       .profilepic { max-width: 150px; }
       .topnav-links { gap: 1.1rem; }
       .topnav-name { font-size: 1rem; }
+      .research-columns {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
@@ -316,7 +333,8 @@
 
     <!-- ===== RESEARCH ===== -->
     <p class="header" id="research" style="margin-top:2.5rem;">Research</p>
-
+    <div class="research-columns">
+        <div class="research-col">
     <p class="subheader">Selected Preprints / Working Papers</p>
 
     <div class="py-2">
@@ -383,7 +401,9 @@
         <a class="tag" href="https://arxiv.org/pdf/2410.14864" target="_blank">arxiv</a>
       </p>
     </div>
+      </div>
 
+      <div class="research-col">
     <p class="subheader">Publications</p>
     <div class="py-2">
       <p class="paper my-2">
@@ -439,9 +459,12 @@
         <a class="tag" href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/32133a6a24d6554263d3584e3ac10faa-Abstract-Conference.html" target="_blank">paper</a>
       </p>
     </div>
+      </div>
+    </div><!-- /research-columns -->
 
     <!-- ===== TALKS ===== -->
     <p class="header" id="talks" style="margin-top:3rem;">Talks</p>
+    <div class="talks-compact">
     <div class="entry-block">
       <span class="entry-title">2026 Joint Statistical Meetings (upcoming)</span><br>
       <span class="entry-sub">August 2026 &middot; Boston, MA</span>
@@ -515,6 +538,7 @@
       <span class="entry-title">INFORMS Annual Meeting</span><br>
       <span class="entry-sub">October 2022 &middot; Indianapolis, IN</span>
     </div>
+    </div><!-- /talks-compact -->
 
     <!-- ===== TEACHING ===== -->
     <p class="header" id="teaching" style="margin-top:3rem;">Teaching</p>
