@@ -259,6 +259,44 @@
       padding: 0.3rem 0 0.3rem 0.75rem;
       margin-bottom: 0.25rem;
     }
+    /* ===== ABSTRACT TOGGLE ===== */
+    .abstract-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: none;
+      border-radius: 3px;
+      padding: 1px 7px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .abstract-toggle:hover { background: var(--accent); color: #fff; }
+    .abstract-toggle .tri {
+      font-size: 0.55rem;
+      transition: transform 0.2s;
+    }
+    .abstract-toggle.open .tri { transform: rotate(90deg); }
+
+    .abstract-content {
+      display: none;
+      margin: 0.55rem 0 0.2rem 0.75rem;
+      padding: 0.75rem 0.95rem;
+      background: var(--accent-light);
+      border-radius: 5px;
+      border-left: 3px solid var(--accent);
+      font-size: 0.83rem;
+      line-height: 1.65;
+      color: var(--text-main);
+      text-align: justify;
+    }
+    .abstract-content.open { display: block; }
+    .abstract-content p { margin: 0; }
 
     @media (max-width: 768px) {
       .page-wrap {
@@ -347,8 +385,12 @@
           Causal Data Science Meeting 2025 (Spotlight) &middot;
           2025 Stanford Causal Science Center Conference (Poster)
         </span><br>
-        <a class="tag" href="https://arxiv.org/pdf/2512.25042" target="_blank">arxiv</a>
+        <a class="tag" href="https://arxiv.org/pdf/2512.25042" target="_blank">arxiv</a><span class="tagsep">|</span>
+        <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="tri">&#9654;</span>abstract</button>
       </p>
+      <div class="abstract-content">
+        <p>Many applications involve estimating the mean of multiple binomial outcomes as a common problem &ndash; assessing intergenerational mobility of census tracts, estimating prevalence of infectious diseases across countries, and measuring click-through rates for different demographic groups. The most standard approach is to report the plain average of each outcome. Despite simplicity, the estimates are noisy when the sample sizes or mean parameters are small. In contrast, the Empirical Bayes (EB) methods are able to boost the average accuracy by borrowing information across tasks. Nevertheless, the EB methods require a Bayesian model where the parameters are sampled from a prior distribution which, unlike the commonly-studied Gaussian case, is unidentified due to discreteness of binomial measurements. Even if the prior distribution is known, the computation is difficult when the sample sizes are heterogeneous as there is no simple joint conjugate prior for the sample size and mean parameter. In this paper, we consider the compound decision framework which treats the sample size and mean parameters as fixed quantities. We develop an approximate Stein&rsquo;s Unbiased Risk Estimator (SURE) for the average mean squared error given any class of estimators. For a class of machine learning-assisted linear shrinkage estimators, we establish asymptotic optimality, regret bounds, and valid inference. Unlike existing work, we work with the binomials directly without resorting to Gaussian approximations. This allows us to work with small sample sizes and/or mean parameters in both one-sample and two-sample settings. We demonstrate our approach using three datasets on firm discrimination, education outcomes, and innovation rates.</p>
+      </div>
     </div>
 
     <div class="py-2">
@@ -363,8 +405,12 @@
           Midwest Econometrics Group Conference 2024
         </span><br>
         <a class="tag" href="https://arxiv.org/pdf/2410.15166" target="_blank">arxiv</a><span class="tagsep">|</span>
-        <a class="tag" href="https://github.com/Yan-Chen-Stats-ORer/Adversarial_Lasso/tree/main" target="_blank">code</a>
+        <a class="tag" href="https://github.com/Yan-Chen-Stats-ORer/Adversarial_Lasso/tree/main" target="_blank">code</a><span class="tagsep">|</span>
+        <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="tri">&#9654;</span>abstract</button>
       </p>
+      <div class="abstract-content">
+        <p>We consider the problem of estimating assortment probabilities, which is common in operations management applications, including product bundling, advertising, etc. Existing approaches typically model each assortment as a category and apply multinomial models to estimate the choice probabilities; while computationally convenient, these methods do not exploit independence structures in the joint distribution and may therefore be statistically inefficient when the total number of items is large. Using the representation from Bahadur (1959), we relate the sparsity of the generalized correlation coefficients to the independence structure of the binary components. We formulate the problem as estimating a high-dimensional vector of generalized correlation coefficients, together with low or moderate-dimensional nuisance parameters corresponding to the marginal probabilities. We develop a regularized adversarial estimator that attains the optimal rate under standard regularity conditions while remaining computationally feasible. The framework naturally extends to settings with covariates. We apply the proposed estimators to causal inference with multiple binary treatments and show substantial finite-sample improvements over non-adaptive methods. Numerical studies corroborate the theoretical results.</p>
+      </div>
     </div>
 
     <div class="py-2">
@@ -593,6 +639,12 @@
   crossorigin="anonymous"></script>
 
 <script>
+  // Toggle abstract fold/unfold
+  function toggleAbstract(btn) {
+    btn.classList.toggle('open');
+    var content = btn.closest('.py-2').querySelector('.abstract-content');
+    if (content) content.classList.toggle('open');
+  }
   // Smooth scroll with offset for sticky nav
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
