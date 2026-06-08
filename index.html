@@ -261,7 +261,7 @@
     /* ===== RESEARCH TWO-COLUMN LAYOUT ===== */
     .research-columns {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 2.5rem;
     }
     .research-columns .subheader { margin-top: 0; }
@@ -373,7 +373,9 @@
           <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>LinkedIn</a></li>
         <li><a href="mailto:yc555@duke.edu">
           <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>yc555@duke.edu</a></li>
-      </ul>
+        <li><a href="https://scholar.google.com/citations?user=YTmRNO4AAAAJ&hl=en" target="_blank">
+      <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"></path></svg>Google Scholar</a></li>
+  </ul>
     </div>
   </aside>
 
@@ -405,7 +407,8 @@
     <p class="header" id="research" style="margin-top:2.5rem;">Research</p>
     <div class="research-columns">
         <div class="research-col">
-    <p class="subheader">Selected Preprints / Working Papers</p>
+    <p class="subheader">Selected Working Papers</p>
+    <p style="font-size:0.88rem; color:var(--text-muted); margin:0 0 1rem;">For the full list of my working papers and publications, please refer to my <a class="in-text" href="https://scholar.google.com/citations?user=YTmRNO4AAAAJ&hl=en" target="_blank">Google Scholar</a> page.</p>
     <div class="py-2">
       <p class="paper my-2">
         <span class="papertitle">Online Pandora's Box for Contextual LLM Cascading</span><br>
@@ -455,7 +458,7 @@
         <p>We consider the problem of estimating assortment probabilities, which is common in operations management applications, including product bundling, advertising, etc. Existing approaches typically model each assortment as a category and apply multinomial models to estimate the choice probabilities; while computationally convenient, these methods do not exploit independence structures in the joint distribution and may therefore be statistically inefficient when the total number of items is large. Using the representation from Bahadur (1959), we relate the sparsity of the generalized correlation coefficients to the independence structure of the binary components. We formulate the problem as estimating a high-dimensional vector of generalized correlation coefficients, together with low or moderate-dimensional nuisance parameters corresponding to the marginal probabilities. We develop a regularized adversarial estimator that attains the optimal rate under standard regularity conditions while remaining computationally feasible. The framework naturally extends to settings with covariates. We apply the proposed estimators to causal inference with multiple binary treatments and show substantial finite-sample improvements over non-adaptive methods. Numerical studies corroborate the theoretical results.</p>
       </div>
     </div>
-
+<!--
     <div class="py-2">
       <p class="paper my-2">
         <span class="papertitle">Testing Fairness with Utility Tradeoffs: A Wasserstein Projection Approach</span><br>
@@ -490,6 +493,7 @@
         <a class="tag" href="https://arxiv.org/pdf/2410.14864" target="_blank">arxiv</a>
       </p>
     </div>
+-->
       </div>
 
       <div class="research-col">
