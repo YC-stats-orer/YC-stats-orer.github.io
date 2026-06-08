@@ -21,6 +21,20 @@
 
   <title>Yan Chen</title>
 
+  <!-- MathJax for rendering LaTeX math in abstracts -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -380,6 +394,17 @@
     <div class="research-columns">
         <div class="research-col">
     <p class="subheader">Selected Preprints / Working Papers</p>
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Online Pandora's Box for Contextual LLM Cascading</span><br>
+        Alexandre Belloni, <span class="thisauthor">Yan Chen</span>, Yehua Wei<br>
+        <a class="tag" href="https://arxiv.org/abs/2606.07392" target="_blank">arxiv</a><span class="tagsep">|</span>
+        <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="tri">&#9654;</span>abstract</button>
+      </p>
+      <div class="abstract-content">
+        <p>Motivated by Large Language Model (LLM) cascading, we propose an online contextual Pandora&rsquo;s Box model for adaptively querying and selecting LLM APIs. In each period, a decision-maker observes a request context and faces a two-phase decision problem. In the query phase, the decision-maker sequentially queries APIs, where each query reveals a generated output and the decision-maker incurs an (output-dependent) cost. In the selection phase, the decision-maker selects one of the generated outputs to deploy and observes only the downstream reward of the deployed output. This output-mediated feedback structure differs from classical online contextual Pandora&rsquo;s Box models, in which opening a box directly reveals its reward. Rather than estimating the full conditional output and cost distributions of each API, we directly model the reservation index and develop a learning approach for the query phase. Specifically, we impose a parametric structure on the contextual reservation index functions induced by the classical Weitzman&rsquo;s policy. Our policy combines generalized method of moments (GMM) type estimation of these reservation indices with UCB-style confidence bounds for both these indices and the shared output-level reward evaluator. Under regularity conditions, we prove that the resulting policy achieves dimension-dependent \(\widetilde{O}(\sqrt{T})\) cumulative regret over a horizon of \(T\) periods.</p>
+      </div>
+    </div>
 
     <div class="py-2">
       <p class="paper my-2">
@@ -661,7 +686,12 @@
   function toggleAbstract(btn) {
     btn.classList.toggle('open');
     var content = btn.closest('.py-2').querySelector('.abstract-content');
-    if (content) content.classList.toggle('open');
+    if (content) {
+      content.classList.toggle('open');
+      if (content.classList.contains('open') && window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([content]);
+      }
+    }
   }
   // Smooth scroll with offset for sticky nav
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
