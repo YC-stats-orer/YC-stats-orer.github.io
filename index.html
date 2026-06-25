@@ -251,18 +251,23 @@
     .status .venue { font-style: italic; font-weight: 700; color: var(--accent-dark); }
     .tag {
       display: inline-block;
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 0.85rem;
+      font-weight: 500;
       letter-spacing: 0.04em;
       color: var(--accent);
       background: var(--accent-light);
       border-radius: 3px;
       padding: 1px 7px;
+      vertical-align: middle;
       text-decoration: none;
       transition: background 0.15s, color 0.15s;
     }
     .tag:hover { background: var(--accent); color: #fff; text-decoration: none; }
-    .tagsep { color: var(--border); margin: 0 2px; }
+    .tagsep { 
+      color: var(--border); 
+      margin: 0 2px;
+      vertical-align: middle;
+    }
 
     /* ===== RESEARCH TWO-COLUMN LAYOUT ===== */
     .research-columns {
@@ -294,14 +299,16 @@
       gap: 4px;
       cursor: pointer;
       font-family: inherit;
-      font-size: 0.72rem;
+      font-size: 0.85rem;
       font-weight: 500;
+      line-height: 1.7;    
       letter-spacing: 0.04em;
       color: var(--accent);
       background: var(--accent-light);
       border: none;
       border-radius: 3px;
       padding: 1px 7px;
+      vertical-align: middle;
       transition: background 0.15s, color 0.15s;
     }
     .abstract-toggle:hover { background: var(--accent); color: #fff; }
