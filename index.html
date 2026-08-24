@@ -434,25 +434,7 @@
         <p>Motivated by Large Language Model (LLM) cascading, we propose an online contextual Pandora&rsquo;s Box model for adaptively querying and selecting LLM APIs. In each period, a decision-maker observes a request context and faces a two-phase decision problem. In the query phase, the decision-maker sequentially queries APIs, where each query reveals a generated output and the decision-maker incurs an (output-dependent) cost. In the selection phase, the decision-maker selects one of the generated outputs to deploy and observes only the downstream reward of the deployed output. This output-mediated feedback structure differs from classical online contextual Pandora&rsquo;s Box models, in which opening a box directly reveals its reward. Rather than estimating the full conditional output and cost distributions of each API, we directly model the reservation index and develop a learning approach for the query phase. Specifically, we impose a parametric structure on the contextual reservation index functions induced by the classical Weitzman&rsquo;s policy. Our policy combines generalized method of moments (GMM) type estimation of these reservation indices with UCB-style confidence bounds for both these indices and the shared output-level reward evaluator. Under regularity conditions, we prove that the resulting policy achieves dimension-dependent \(\widetilde{O}(\sqrt{T})\) cumulative regret over a horizon of \(T\) periods.</p>
       </div>
     </div>
-
-    <div class="py-2">
-      <p class="paper my-2">
-        <span class="papertitle">Compound Estimation for Binomials</span><br>
-        <span class="thisauthor">Yan Chen</span>, Lihua Lei<br>
-        <span class="accepted">27th ACM Conference on Economics and Computation (EC 2026)</span><br>
-        <span class="conf">
-          Presented at CODE@MIT (Poster) 2025 &middot;
-          Causal Data Science Meeting 2025 (Spotlight) &middot;
-          2025 Stanford Causal Science Center Conference (Poster)
-        </span><br>
-        <a class="tag" href="https://arxiv.org/pdf/2512.25042" target="_blank">arxiv</a><span class="tagsep">|</span>
-        <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="tri">&#9654;</span>abstract</button>
-      </p>
-      <div class="abstract-content">
-        <p>Many applications involve estimating the mean of multiple binomial outcomes as a common problem &ndash; assessing intergenerational mobility of census tracts, estimating prevalence of infectious diseases across countries, and measuring click-through rates for different demographic groups. The most standard approach is to report the plain average of each outcome. Despite simplicity, the estimates are noisy when the sample sizes or mean parameters are small. In contrast, the Empirical Bayes (EB) methods are able to boost the average accuracy by borrowing information across tasks. Nevertheless, the EB methods require a Bayesian model where the parameters are sampled from a prior distribution which, unlike the commonly-studied Gaussian case, is unidentified due to discreteness of binomial measurements. Even if the prior distribution is known, the computation is difficult when the sample sizes are heterogeneous as there is no simple joint conjugate prior for the sample size and mean parameter. In this paper, we consider the compound decision framework which treats the sample size and mean parameters as fixed quantities. We develop an approximate Stein&rsquo;s Unbiased Risk Estimator (SURE) for the average mean squared error given any class of estimators. For a class of machine learning-assisted linear shrinkage estimators, we establish asymptotic optimality, regret bounds, and valid inference. Unlike existing work, we work with the binomials directly without resorting to Gaussian approximations. This allows us to work with small sample sizes and/or mean parameters in both one-sample and two-sample settings. We demonstrate our approach using three datasets on firm discrimination, education outcomes, and innovation rates.</p>
-      </div>
-    </div>
-
+          
     <div class="py-2">
       <p class="paper my-2">
         <span class="papertitle">Adversarial Estimation of Assortment Probabilities under Independence Structure</span><br>
@@ -473,6 +455,25 @@
         <p>We consider the problem of estimating assortment probabilities, which is common in operations management applications, including product bundling, advertising, etc. Existing approaches typically model each assortment as a category and apply multinomial models to estimate the choice probabilities; while computationally convenient, these methods do not exploit independence structures in the joint distribution and may therefore be statistically inefficient when the total number of items is large. Using the representation from Bahadur (1959), we relate the sparsity of the generalized correlation coefficients to the independence structure of the binary components. We formulate the problem as estimating a high-dimensional vector of generalized correlation coefficients, together with low or moderate-dimensional nuisance parameters corresponding to the marginal probabilities. We develop a regularized adversarial estimator that attains the optimal rate under standard regularity conditions while remaining computationally feasible. The framework naturally extends to settings with covariates. We apply the proposed estimators to causal inference with multiple binary treatments and show substantial finite-sample improvements over non-adaptive methods. Numerical studies corroborate the theoretical results.</p>
       </div>
     </div>
+
+    <div class="py-2">
+      <p class="paper my-2">
+        <span class="papertitle">Compound Estimation for Binomials</span><br>
+        <span class="thisauthor">Yan Chen</span>, Lihua Lei<br>
+        <span class="accepted">27th ACM Conference on Economics and Computation (EC 2026)</span><br>
+        <span class="conf">
+          Presented at CODE@MIT (Poster) 2025 &middot;
+          Causal Data Science Meeting 2025 (Spotlight) &middot;
+          2025 Stanford Causal Science Center Conference (Poster)
+        </span><br>
+        <a class="tag" href="https://arxiv.org/pdf/2512.25042" target="_blank">arxiv</a><span class="tagsep">|</span>
+        <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="tri">&#9654;</span>abstract</button>
+      </p>
+      <div class="abstract-content">
+        <p>Many applications involve estimating the mean of multiple binomial outcomes as a common problem &ndash; assessing intergenerational mobility of census tracts, estimating prevalence of infectious diseases across countries, and measuring click-through rates for different demographic groups. The most standard approach is to report the plain average of each outcome. Despite simplicity, the estimates are noisy when the sample sizes or mean parameters are small. In contrast, the Empirical Bayes (EB) methods are able to boost the average accuracy by borrowing information across tasks. Nevertheless, the EB methods require a Bayesian model where the parameters are sampled from a prior distribution which, unlike the commonly-studied Gaussian case, is unidentified due to discreteness of binomial measurements. Even if the prior distribution is known, the computation is difficult when the sample sizes are heterogeneous as there is no simple joint conjugate prior for the sample size and mean parameter. In this paper, we consider the compound decision framework which treats the sample size and mean parameters as fixed quantities. We develop an approximate Stein&rsquo;s Unbiased Risk Estimator (SURE) for the average mean squared error given any class of estimators. For a class of machine learning-assisted linear shrinkage estimators, we establish asymptotic optimality, regret bounds, and valid inference. Unlike existing work, we work with the binomials directly without resorting to Gaussian approximations. This allows us to work with small sample sizes and/or mean parameters in both one-sample and two-sample settings. We demonstrate our approach using three datasets on firm discrimination, education outcomes, and innovation rates.</p>
+      </div>
+    </div>
+          
 <!--
     <div class="py-2">
       <p class="paper my-2">
