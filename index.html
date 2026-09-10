@@ -263,6 +263,9 @@
       transition: background 0.15s, color 0.15s;
     }
     .tag:hover { background: var(--accent); color: #fff; text-decoration: none; }
+    /* black-text variant (used for media coverage links) */
+    .tag.media { color: #000; }
+    .tag.media:hover { background: #000; color: #fff; }
     .tagsep { 
       color: var(--border); 
       margin: 0 2px;
@@ -432,7 +435,8 @@
           INFORMS Revenue Management and Pricing Conference 2026
         </span><br>
         <a class="tag" href="https://arxiv.org/abs/2606.07392" target="_blank">arxiv</a><span class="tagsep">|</span>
-        <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="tri">&#9654;</span>abstract</button>
+        <button class="abstract-toggle" onclick="toggleAbstract(this)"><span class="tri">&#9654;</span>abstract</button><span class="tagsep">|</span>
+        <a class="tag media" href="https://www.fuqua.duke.edu/duke-fuqua-insights/a-smarter-cheaper-way-to-choose-the-right-AI-tool" target="_blank">Media coverage: Duke Fuqua Insights</a>
       </p>
       <div class="abstract-content">
         <p>Motivated by Large Language Model (LLM) cascading, we propose an online contextual Pandora&rsquo;s Box model for adaptively querying and selecting LLM APIs. In each period, a decision-maker observes a request context and faces a two-phase decision problem. In the query phase, the decision-maker sequentially queries APIs, where each query reveals a generated output and the decision-maker incurs an (output-dependent) cost. In the selection phase, the decision-maker selects one of the generated outputs to deploy and observes only the downstream reward of the deployed output. This output-mediated feedback structure differs from classical online contextual Pandora&rsquo;s Box models, in which opening a box directly reveals its reward. Rather than estimating the full conditional output and cost distributions of each API, we directly model the reservation index and develop a learning approach for the query phase. Specifically, we impose a parametric structure on the contextual reservation index functions induced by the classical Weitzman&rsquo;s policy. Our policy combines generalized method of moments (GMM) type estimation of these reservation indices with UCB-style confidence bounds for both these indices and the shared output-level reward evaluator. Under regularity conditions, we prove that the resulting policy achieves dimension-dependent \(\widetilde{O}(\sqrt{T})\) cumulative regret over a horizon of \(T\) periods.</p>
